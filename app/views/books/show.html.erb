@@ -22,7 +22,20 @@
 
 
 <h2>Comments</h2>
-<%= render @book.comments %>
+<% @book.comments.each do |comment| %>
+<p>
+  <strong>Commenter:</strong>
+  <%= comment.title %>
+</p>
+ 
+<p>
+  <strong>Comment:</strong>
+  <%= comment.comment %>
+</p>
+<p>
+<%= comment.user.email %>
+</p>
+<% end %>
  
 <h2>Add a comment:</h2>
  <%# form_for @comment, url: "/rakesh" do |f| %>
@@ -35,6 +48,8 @@
     <%= f.label :comment %><br>
     <%= f.text_area :comment %>
   </p>
+
+
   <p>
     <%= f.submit %>
   </p>

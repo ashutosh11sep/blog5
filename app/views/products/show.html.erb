@@ -15,7 +15,20 @@
 </p>
 
 <h2>Comments</h2>
-<%= render @product.comments %>
+<% @product.comments.each do |comment| %>
+<p>
+  <strong>Commenter:</strong>
+  <%= comment.title %>
+</p>
+ 
+<p>
+  <strong>Comment:</strong>
+  <%= comment.comment %>
+</p>
+<p>
+<%= comment.user.email %>
+</p>
+<% end %>
  
 <h2>Add a comment:</h2>
  <%# form_for @comment, url: "/rakesh" do |f| %>

@@ -1,5 +1,5 @@
 class Blog < ApplicationRecord
-
+belongs_to :user
 
 acts_as_commentable
 	validates :title, presence: true,
