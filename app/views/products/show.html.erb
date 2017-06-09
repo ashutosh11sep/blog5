@@ -1,0 +1,37 @@
+
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+ 
+<p>
+  <strong>Description:</strong>
+  <%= @product.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @product.price %>
+</p>
+
+<h2>Comments</h2>
+<%= render @product.comments %>
+ 
+<h2>Add a comment:</h2>
+ <%# form_for @comment, url: "/rakesh" do |f| %>
+  <%= form_for([@product, @product.comments.build]) do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :comment %><br>
+    <%= f.text_area :comment %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+ 
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

@@ -1,0 +1,35 @@
+<p>
+  <strong>Title:</strong>
+  <%= @blog.title %>
+</p>
+ 
+<p>
+  <strong>Location:</strong>
+  <%= @blog.location%>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @blog.description%>
+</p>
+
+ 
+<h2>Comments</h2>
+<%= render @blog.comments%>
+ 
+<h2>Add a comment:</h2>
+ 
+  <%= form_for([@blog, @blog.comments.build]) do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :comment %><br>
+    <%= f.text_area :comment %>
+  </p>
+  <p>
+    <%= f.submit %>
+ <% end %>
+<%= link_to 'Edit', edit_blog_path(@blog) %> |
+<%= link_to 'Back', blogs_path %>

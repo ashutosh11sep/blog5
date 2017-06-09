@@ -1,0 +1,15 @@
+<p>
+  <strong>Commenter:</strong>
+  <%= comment_pro.commenter %>
+</p>
+ 
+<p>
+  <strong>Comment:</strong>
+  <%= comment_pro.body %>
+</p>
+ 
+<p>
+  <%= link_to 'Destroy Comment_pro', [comment_pro.product, comment_pro],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>

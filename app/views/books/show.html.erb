@@ -1,0 +1,42 @@
+
+<p>
+  <strong>Title:</strong>
+  <%= @book.title %>
+</p>
+ 
+<p>
+  <strong>Location:</strong>
+  <%= @book.location %>
+</p>
+
+<p>
+  <strong>Created_By:</strong>
+  <%= @book.created_by %>
+</p>
+
+<p>
+  <strong>Category_id:</strong>
+  <%= @book.category_id %>
+</p>
+
+
+
+<h2>Comments</h2>
+<%= render @book.comments %>
+ 
+<h2>Add a comment:</h2>
+ <%# form_for @comment, url: "/rakesh" do |f| %>
+  <%= form_for([@book, @book.comments.build]) do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :comment %><br>
+    <%= f.text_area :comment %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+<%= link_to 'Back', books_path %>
