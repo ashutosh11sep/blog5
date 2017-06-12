@@ -20,8 +20,14 @@ def create
 end
 
 def index
+
+  if current_user
+     @blogs= Blog.where(user_id: current_user.id)
+
+   else
     @blogs = Blog.all
   end
+end
 def show
 	@blog = Blog.find(params[:id])
 	end

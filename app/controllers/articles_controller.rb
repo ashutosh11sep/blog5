@@ -4,8 +4,16 @@ class ArticlesController < ApplicationController
 
  
    def index
+   #byebug
+   if current_user 
+
+    @article=Article.where(user_id: current_user.id)
+
+  else
+
     @articles = Article.all
   end
+end
  
   def show
     @article = Article.find(params[:id])

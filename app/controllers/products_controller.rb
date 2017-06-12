@@ -1,8 +1,14 @@
 class ProductsController < ApplicationController
 	
 def index
-	@products=Product.all
+
+  if current_user
+     @products= Product.where(user_id: current_user.id)
+	
+else
+  @products=Product.all
 end	
+end
 def show
       @comment = Comment.new
 	    @product = Product.find(params[:id])

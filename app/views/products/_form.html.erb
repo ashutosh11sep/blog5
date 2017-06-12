@@ -12,6 +12,9 @@
     <%= f.label :price %><br>
     <%= f.number_field :price %>
   </p>
+  <p>
+    <%= f.collection_select :category_id, Category.all, :id, :name, prompt: true %>
+    </p>
  
  
   <p>

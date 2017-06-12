@@ -13,6 +13,10 @@
     <%= f.label :description%><br>
     <%= f.text_area :description %>
   </p>
+
+  <p>
+    <%= f.collection_select :category_id, Category.all, :id, :name, prompt: true %>
+    </p>
   <p>
     <%= f.submit %>
   </p>

@@ -1,9 +1,18 @@
 class BooksController < ApplicationController
-before_action :authenticate_user!
+before_action :authenticate_user!, only: [:new, :create, :update, :destroy]
 
-def index
+def index 
+  if current_user
+     @books= Book.where(user_id: current_user.id)
+  else
     @books = Book.all
   end
+  
+  
+ 
+end
+
+  
 def show
     @book = Book.find(params[:id])
   end
